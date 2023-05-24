@@ -8,3 +8,8 @@ export const fetchPokemon = createAsyncThunk(
         return response
     }
 )
+const initialState = {
+    pokemon: null,
+    isLoading: false,
+    error: null,
+}
