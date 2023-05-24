@@ -8,8 +8,17 @@ export const fetchPokemon = createAsyncThunk(
         return response
     }
 )
+
 const initialState = {
     pokemon: null,
     isLoading: false,
     error: null,
 }
+const pokemonSlice = createSlice({
+    name: 'pokemon',
+    initialState: initialState,
+    reducers: {},
+    extraReducers: (builder) => {
+        
+    }
+})
