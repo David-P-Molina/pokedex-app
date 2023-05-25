@@ -19,6 +19,10 @@ const pokemonSlice = createSlice({
     initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
+        builder
+            .addCase(fetchPokemon.pending, (state) => {
+                state.isLoading = true
+            })
         
     }
 })
