@@ -6,5 +6,10 @@ const store = configureStore({
     reducer: {
         [pokeApi.reducerPath]: pokeApi.reducer,
         pokemon: pokemonReducer,
+    },
+    middleware: (getDefaultMiddleware) => {
+        getDefaultMiddleware().concat(pokeApi.middleware)
     }
 })
+
+export default store
