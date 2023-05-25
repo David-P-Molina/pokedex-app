@@ -23,6 +23,9 @@ const pokemonSlice = createSlice({
             .addCase(fetchPokemon.pending, (state) => {
                 state.isLoading = true
             })
-        
+            .addCase(fetchPokemon.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.pokemon = action.payload
+            })
     }
 })
