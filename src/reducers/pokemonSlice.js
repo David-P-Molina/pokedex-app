@@ -27,5 +27,9 @@ const pokemonSlice = createSlice({
                 state.isLoading = false
                 state.pokemon = action.payload
             })
+            .addCase(fetchPokemon.rejected, (state, action) => {
+                state.isLoading = false
+                state.error = action.error.message
+            })
     }
 })
