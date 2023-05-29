@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { Box } from '@mui/material'
 import NavBar from './components/NavBar';
+import Footer from './components/Footer'
 import Home from './pages/Home';
 import PokemonDetail from './features/PokemonDetail';
 import TypesDetail from './features/TypesDetail';
@@ -13,10 +14,11 @@ function App() {
     <Box className="App">
       <NavBar />
       <Routes>
-        <Routes to="/" element={ <Home/> }/>  
-        <Routes to="/pokemon" element={<PokemonDetail />}/>
-        <Routes to="/types" element={<TypesDetail />}/>
+        <Route to="/" element={ <Home/> }/>  
+        <Route to="/pokemon" element={<PokemonDetail />}/>
+        <Route to="/types" element={<TypesDetail />}/>
       </Routes>
+      <Footer />
     </Box>
   );
 }
