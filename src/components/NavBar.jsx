@@ -5,7 +5,16 @@ import SearchBar from './SearchBar'
 
 const NavBar = () => {
   return (
-    <Stack>NavBar
+    <Stack>
+        <Link to="/">
+            Home{/* Home Pokemon Ball */}
+        </Link>
+        <Link to="/pokemon">
+            Pokemon
+        </Link>
+        <Link to="/types">
+            Type
+        </Link>
         <SearchBar />
     </Stack>
   )
