@@ -5,7 +5,15 @@ import SearchBar from './SearchBar'
 
 const NavBar = () => {
   return (
-    <Stack>
+    <Stack
+        direction="row"
+        justifyContent="space-around"
+        sx={{
+            gap: { sm: '120px', xs: '40px'},
+            mt: {sm: '36px', xs: '24px'},
+            margin: '0 20px',
+            justifyContent: 'none',
+        }}>
         <Link to="/">
             Home{/* Home Pokemon Ball */}
         </Link>
