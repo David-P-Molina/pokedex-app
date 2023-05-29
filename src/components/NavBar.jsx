@@ -1,11 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { Stack } from '@mui/material'
 import SearchBar from './SearchBar'
 
 const NavBar = () => {
   return (
-    <div>NavBar
+    <Stack>NavBar
         <SearchBar />
-    </div>
+    </Stack>
   )
 }
 
