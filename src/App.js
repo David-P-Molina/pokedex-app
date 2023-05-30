@@ -12,8 +12,8 @@ import './App.css';
 function App() {
   return (
     <Box className="App">
-      <NavBar />
       <Router>
+      <NavBar />
         <Routes>
           <Route to="/" element={ <Home/> }/>  
           <Route to="/pokemon" element={<PokemonDetail />}/>
