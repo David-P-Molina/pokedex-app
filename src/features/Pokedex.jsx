@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Button } from '@mui/material'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchPokemon } from '../reducers/pokemonSlice'
+import { fetchPokemon, fetchAllPokemon, fetchAllTypes } from '../reducers/pokemonSlice'
 
 const Pokedex = () => {
     const pokemon = useSelector((state) => state.pokemon.pokemon)  
