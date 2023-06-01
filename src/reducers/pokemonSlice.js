@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { useGetPokemonByNameQuery } from '../apis/pokeAPI'
+import { useGetPokemonByNameQuery, useGetAllPokemonQuery, useGetAllTypesQuery } from '../apis/pokeAPI'
 
 export const fetchPokemon = createAsyncThunk(
     'pokemon/fetchPokemon',
@@ -9,7 +9,22 @@ export const fetchPokemon = createAsyncThunk(
     }
 )
 
+export const fetchAllPokemon = createAsyncThunk(
+    'pokemon/fetchAllPokemon', async () => {
+        const response = await useGetAllPokemonQuery()
+        return response
+    }
+)
+
+export const fetchAllTypes = createAsyncThunk(
+    'pokemon/fetchAllTypes', async () => {
+        const response = await useGetAllTypesQuery()
+        return response
+    }
+)
 const initialState = {
+    allPokemon: [],
+    allTypes: [],
     pokemon: null,
     isLoading: false,
     error: null,
