@@ -1,10 +1,13 @@
 import React from 'react'
+import Footer from './components/Footer'
+import Pokedex from './features/Pokedex';
+import { Provider } from 'react-redux'
+import { CssBaseline, Container } from '@mui/material';
+import store from './store/store'
 // import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 // import { Box } from '@mui/material'
 // import NavBar from './components/NavBar';
-import Footer from './components/Footer'
 // import Home from './pages/Home';
-import Pokedex from './features/Pokedex';
 // import PokemonDetail from './features/PokemonDetail';
 // import TypesDetail from './features/TypesDetail';
 
@@ -12,7 +15,13 @@ import './App.css';
 
 function App() {
   return (
-    
+    <Provider store={store}>
+      <CssBaseline />
+      <Container maxWidth='lg'>
+        <Pokedex />
+        <Footer />
+      </Container>
+    </Provider>
     // <Box className="App">
     //   <Router>
     //   <NavBar />
