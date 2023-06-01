@@ -35,6 +35,31 @@ const pokemonSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
+            //Cases for getting all Pokemon
+            .addCase(fetchAllPokemon.pending, (state => {
+                state.isLoading = true
+            }))
+            .addCase(fetchAllPokemon.fulfilled, (state => {
+                state.isLoading = false
+                state.allPokemon = state.payload
+            }))
+            .addCase(fetchAllPokemon.rejected, (state => {
+                state.isLoading = false;
+                state.error = state.error.message
+            }))
+            //Cases for getting all Types
+            .addCase(fetchAllTypes.pending, (state => {
+                state.isLoading = true
+            }))
+            .addCase(fetchAllTypes.fulfilled, (state => {
+                state.isLoading = false
+                state.allTypes = state.payload
+            }))
+            .addCase(fetchAllTypes.rejected, (state => {
+                state.isLoading = false;
+                state.error = state.error.message
+            }))
+            //Cases for getting single Pokemon
             .addCase(fetchPokemon.pending, (state) => {
                 state.isLoading = true
             })
