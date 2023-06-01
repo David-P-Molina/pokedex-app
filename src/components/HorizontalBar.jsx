@@ -1,9 +1,9 @@
 import React from 'react'
 
-const TypesHorizontalBar = () => {
+const HorizontalBar = () => {
   return (
     <div>TypesHorizontalBar</div>
   )
 }
 
-export default TypesHorizontalBar
+export default HorizontalBar
