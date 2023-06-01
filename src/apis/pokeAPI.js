@@ -11,8 +11,11 @@ export const pokeApi = createApi({
         getAllPokemon: builder.query({
             query: () => 'pokemon',
         }),
+        getAllTypes: builder.query({
+            query: () => 'types',
+        }),
     })    
 })
 
 
-export const { useGetPokemonByNameQuery, getAllPokemon } = pokeApi
+export const { useGetPokemonByNameQuery, useGetAllPokemonQuery, useGetAllTypesQuery } = pokeApi
