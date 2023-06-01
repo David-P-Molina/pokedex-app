@@ -1,5 +1,5 @@
-import React from 'react'
-import { Grid, Button } from '@mui/material'
+import React, { useEffect } from 'react'
+import { Grid } from '@mui/material'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchPokemon, fetchAllPokemon, fetchAllTypes } from '../reducers/pokemonSlice'
 
@@ -10,6 +10,11 @@ const Pokedex = () => {
     const handleSearch = (name) => {
         dispatch(fetchPokemon(name))
     }
+    useEffect(() => {
+      dispatch(fetchAllPokemon())
+      dispatch(fetchAllTypes())
+    }, )
+    
   return (
     <Grid>
         Holder{console.log(pokemon)}{/* pokemon ui */}
