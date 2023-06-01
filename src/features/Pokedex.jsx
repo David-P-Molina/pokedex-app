@@ -13,11 +13,10 @@ const Pokedex = () => {
     useEffect(() => {
       dispatch(fetchAllPokemon())
       dispatch(fetchAllTypes())
-    }, )
-    
+    }, [])
   return (
     <Grid>
-        Holder{console.log(pokemon)}{/* pokemon ui */}
+        Holder{/* pokemon ui */}
     </Grid>
   )
 }

@@ -1,24 +1,25 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { useGetPokemonByNameQuery, useGetAllPokemonQuery, useGetAllTypesQuery } from '../apis/pokeAPI'
+// import { useGetPokemonByNameQuery, useGetAllPokemonQuery, useGetAllTypesQuery } from '../apis/pokeAPI'
+import { pokeApi } from '../apis/pokeAPI';
 
 export const fetchPokemon = createAsyncThunk(
     'pokemon/fetchPokemon',
     async (name) => {
-        const response = await useGetPokemonByNameQuery(name)
+        const response = await pokeApi.getPokemonByName(name).toPromise();
         return response
     }
 )
 
 export const fetchAllPokemon = createAsyncThunk(
     'pokemon/fetchAllPokemon', async () => {
-        const response = await useGetAllPokemonQuery()
+        const response = await pokeApi.getAllPokemon().toPromise();
         return response
     }
 )
 
 export const fetchAllTypes = createAsyncThunk(
     'pokemon/fetchAllTypes', async () => {
-        const response = await useGetAllTypesQuery()
+        const response = await pokeApi.getAllTypes().toPromise();
         return response
     }
 )
@@ -36,29 +37,29 @@ const pokemonSlice = createSlice({
     extraReducers: (builder) => {
         builder
             //Cases for getting all Pokemon
-            .addCase(fetchAllPokemon.pending, (state => {
+            .addCase(fetchAllPokemon.pending, (state) => {
                 state.isLoading = true
-            }))
-            .addCase(fetchAllPokemon.fulfilled, (state => {
+            })
+            .addCase(fetchAllPokemon.fulfilled, (state, action) => {
                 state.isLoading = false
-                state.allPokemon = state.payload
-            }))
-            .addCase(fetchAllPokemon.rejected, (state => {
+                state.allPokemon = action.payload
+            })
+            .addCase(fetchAllPokemon.rejected, (state, action) => {
                 state.isLoading = false;
-                state.error = state.error.message
-            }))
+                state.error = action.error.message
+            })
             //Cases for getting all Types
-            .addCase(fetchAllTypes.pending, (state => {
+            .addCase(fetchAllTypes.pending, (state) => {
                 state.isLoading = true
-            }))
-            .addCase(fetchAllTypes.fulfilled, (state => {
+            })
+            .addCase(fetchAllTypes.fulfilled, (state, action) => {
                 state.isLoading = false
-                state.allTypes = state.payload
-            }))
-            .addCase(fetchAllTypes.rejected, (state => {
+                state.allTypes = action.payload
+            })
+            .addCase(fetchAllTypes.rejected, (state, action) => {
                 state.isLoading = false;
-                state.error = state.error.message
-            }))
+                state.error = action.error.message
+            })
             //Cases for getting single Pokemon
             .addCase(fetchPokemon.pending, (state) => {
                 state.isLoading = true
