@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 // import { useGetPokemonByNameQuery, useGetAllPokemonQuery, useGetAllTypesQuery } from '../apis/pokeAPI'
-import { pokeApi } from '../apis/pokeAPI';
+import { pokeApi } from '../apis/pokeApi';
 
 export const fetchPokemon = createAsyncThunk(
     'pokemon/fetchPokemon',

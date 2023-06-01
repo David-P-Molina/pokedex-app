@@ -1,5 +1,5 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import { pokeApi } from "../apis/pokeAPI";
+import { pokeApi } from "../apis/pokeApi";
 import pokemonReducer from "../reducers/pokemonSlice";
 
 const store = configureStore({
