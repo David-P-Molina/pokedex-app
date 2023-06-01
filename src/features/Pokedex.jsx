@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid } from '@mui/material'
+import { Grid, Button } from '@mui/material'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchPokemon } from '../reducers/pokemonSlice'
 
@@ -11,7 +11,9 @@ const Pokedex = () => {
         dispatch(fetchPokemon(name))
     }
   return (
-    <div>Pokedex</div>
+    <Grid>
+        Holder{console.log(pokemon)}{/* pokemon ui */}
+    </Grid>
   )
 }
 
