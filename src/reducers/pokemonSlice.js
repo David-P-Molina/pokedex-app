@@ -25,6 +25,7 @@ export const fetchAllTypes = createAsyncThunk(
 )
 const initialState = {
     allPokemon: [],
+    pokemonList: [],
     allTypes: [],
     pokemon: null,
     isLoading: false,
@@ -33,7 +34,10 @@ const initialState = {
 const pokemonSlice = createSlice({
     name: 'pokemon',
     initialState: initialState,
-    reducers: {},
+    reducers: {
+        setPokemonList: (state, action) => {
+          state.pokemonList = action.payload;
+        },
     extraReducers: (builder) => {
         builder
             //Cases for getting all Pokemon

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Grid } from '@mui/material'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchPokemon, fetchAllPokemon, fetchAllTypes } from '../reducers/pokemonSlice'
-import { pokeAPI } from '../apis/pokeApi';
+import { pokeApi } from '../apis/pokeApi';
 const Pokedex = () => {
   const dispatch = useDispatch() 
   const pokemon = useSelector((state) => state.pokemon.pokemon)
