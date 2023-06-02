@@ -26,7 +26,11 @@ const Pokedex = () => {
     }, [allPokemon, allTypes]);
   return (
     <Grid>
-        Holder{/* pokemon ui */}
+        <h1>Pokemon List</h1>
+        {pokemonList.map((pokemon) => (
+          <p key={pokemon.name}>{pokemon.name}</p>
+          )
+        )}
     </Grid>
   )
 }
