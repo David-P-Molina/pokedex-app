@@ -38,6 +38,7 @@ const pokemonSlice = createSlice({
         setPokemonList: (state, action) => {
           state.pokemonList = action.payload;
         },
+    },
     extraReducers: (builder) => {
         builder
             //Cases for getting all Pokemon
