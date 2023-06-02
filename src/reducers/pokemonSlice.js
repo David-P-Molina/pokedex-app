@@ -1,6 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 // import { useGetPokemonByNameQuery, useGetAllPokemonQuery, useGetAllTypesQuery } from '../apis/pokeAPI'
 import { pokeApi } from '../apis/pokeApi';
+import { fetchPokemonList } from '../apis/pokeApi';
+
+export const fetchPokemonListAsync = (limit) => async (dispatch) => {
+    const pokemonList = await fetchPokemonList(limit);
+    dispatch(setPokemonList(pokemonList));
+  };
 
 export const fetchPokemon = createAsyncThunk(
     'pokemon/fetchPokemon',
