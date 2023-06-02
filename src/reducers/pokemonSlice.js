@@ -80,4 +80,6 @@ const pokemonSlice = createSlice({
     }
 })
 
+export const { setPokemonList } = pokemonSlice.actions;
+
 export default pokemonSlice.reducer
