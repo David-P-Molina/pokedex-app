@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
 import { Grid } from '@mui/material'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchPokemon, fetchAllPokemon, fetchAllTypes } from '../reducers/pokemonSlice'
+import { fetchPokemon, fetchAllPokemon, fetchAllTypes, fetchPokemonListAsync } from '../reducers/pokemonSlice'
 import { pokeApi } from '../apis/pokeApi';
+
 const Pokedex = () => {
   const dispatch = useDispatch() 
   const pokemon = useSelector((state) => state.pokemon.pokemon)
+  const pokemonList = useSelector((state) => state.pokemon.pokemonList)
   const allPokemon = useSelector((state) => state.pokemon.allPokemon);
   const allTypes = useSelector((state) => state.pokemon.allTypes);
   
@@ -15,7 +17,7 @@ const Pokedex = () => {
     useEffect(() => {
       dispatch(fetchAllPokemon())
       dispatch(fetchAllTypes())
-      
+      dispatch(fetchPokemonListAsync(20))
     }, [dispatch])
     useEffect(() => {
       // Log the fetched data
