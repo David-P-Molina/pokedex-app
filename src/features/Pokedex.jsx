@@ -17,7 +17,7 @@ const Pokedex = () => {
     useEffect(() => {
       dispatch(fetchAllPokemon())
       dispatch(fetchAllTypes())
-      dispatch(fetchPokemonListAsync(20))
+      dispatch(fetchPokemonListAsync(2))
     }, [dispatch])
     //Fetch IndividualPokemon
     useEffect(() => {
@@ -25,7 +25,8 @@ const Pokedex = () => {
       const allPokemonInfo = []
       pokemonList.forEach((pokemon,index) => {
         let pokeInfo;//fetchCallForIndividualPokemon(pokemon)
-        
+        let pokeObject = {}; //construct necessary info, type, evolutions, description, etc.
+        allPokemonInfo.push(pokeObject)
       })
     }, [pokemonList])
     
