@@ -19,6 +19,16 @@ const Pokedex = () => {
       dispatch(fetchAllTypes())
       dispatch(fetchPokemonListAsync(20))
     }, [dispatch])
+    //Fetch IndividualPokemon
+    useEffect(() => {
+      //fetch call based on url
+      const allPokemonInfo = []
+      pokemonList.forEach((pokemon,index) => {
+        let pokeInfo;//fetchCallForIndividualPokemon(pokemon)
+        
+      })
+    }, [pokemonList])
+    
     // useEffect(() => {
     //   // Log the fetched data
     //   console.log('All Pokemon:', allPokemon);
