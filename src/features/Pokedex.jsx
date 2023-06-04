@@ -19,11 +19,12 @@ const Pokedex = () => {
       dispatch(fetchAllTypes())
       dispatch(fetchPokemonListAsync(20))
     }, [dispatch])
-    useEffect(() => {
-      // Log the fetched data
-      console.log('All Pokemon:', allPokemon);
-      console.log('All Types:', allTypes);
-    }, [allPokemon, allTypes]);
+    // useEffect(() => {
+    //   // Log the fetched data
+    //   console.log('All Pokemon:', allPokemon);
+    //   console.log('All Types:', allTypes);
+    // }, [allPokemon, allTypes]);
+    if(!pokemonList > 0) return "Loading..."
   return (
     <Grid>
         <h1>Pokemon List</h1>
