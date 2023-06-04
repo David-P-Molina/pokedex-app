@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Grid, Typography } from '@mui/material'
+import { Grid, Typography, Box } from '@mui/material'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchPokemon, fetchAllPokemon, fetchAllTypes, fetchPokemonListAsync } from '../reducers/pokemonSlice'
 import { pokeApi } from '../apis/pokeApi';
@@ -40,12 +40,14 @@ const Pokedex = () => {
     <Grid>
         <h1>Pokemon List</h1>
         {pokemonList.map((pokemon) => (
-          <Typography 
-            key={pokemon.name}
-            variant='h3' 
-            textTransform='capitalize'>
-            {pokemon.name}
-          </Typography>
+          <Box>
+            <Typography 
+              key={pokemon.name}
+              variant='h3' 
+              textTransform='capitalize'>
+              {pokemon.name}
+            </Typography>
+          </Box>
           )
         )}
     </Grid>
