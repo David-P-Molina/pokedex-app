@@ -7,6 +7,12 @@ export const fetchPokemonList = async (limit) => {
     return data.results
   }
 
+export const fetchAllTypes = async () => {
+    const response = await fetch(`${baseURL}type`)
+    const data = await response.json()
+    return data.results
+}
+
   //Need to redo to fetch actual pokemonTypes and get working
 export const pokeApi = createApi({
     reducerPath: 'pokeApi',
