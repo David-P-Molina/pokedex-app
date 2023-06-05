@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Grid, Typography, Box } from '@mui/material'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchPokemon, fetchAllPokemon, fetchAllTypes, fetchPokemonListAsync } from '../reducers/pokemonSlice'
+import { fetchPokemon, fetchAllPokemon, fetchAllTypes, fetchPokemonListAsync, fetchPokeInfoAsync } from '../reducers/pokemonSlice'
 import { pokeApi } from '../apis/pokeApi';
 
 const Pokedex = () => {
@@ -24,7 +24,7 @@ const Pokedex = () => {
       //fetch call based on url
       const allPokemonInfo = []
       pokemonList.forEach((pokemon,index) => {
-        let pokeInfo = dispatch(fetchPokeInfo(pokemon))
+        let pokeInfo = dispatch(fetchPokeInfoAsync(pokemon))
         let pokeObject = {
           height: pokeInfo['height'],
           weight: pokeInfo['weight'],
