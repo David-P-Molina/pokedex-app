@@ -1,32 +1,20 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
 
+const generateDamageTypes = (damageInfo, propertyKey) => {
+  if(damageInfo[propertyKey] === []) return <span>None</span>
+  const damageInfoList = damageInfo[propertyKey].map((item) => (
+    <span key={item.name}>{item.name}</span>
+    )
+  )
+  return damageInfoList
+}
+
 const TypeCard = ({ type }) => {
   const { damage_relations, id, move_damage_class: { 
     name: moveDamageClassName 
   }, } = type;
-  //Double
-  const doubleDamageFrom = damage_relations.double_damage_from.map((item) => (
-    <span key={item.name}>{item.name}</span>
-  ))
-  const doubleDamageTo = damage_relations.double_damage_to.map((item) => (
-    <span key={item.name}>{item.name}</span>
-  ))
-  //Half
-  const halfDamageFrom = damage_relations.half_damage_from.map((item) => (
-    <span key={item.name}>{item.name}</span>
-  ))
-  const halfDamageTo = damage_relations.half_damage_to.map((item) => (
-    <span key={item.name}>{item.name}</span>
-  )) 
-  //No Damage
-  const noDamageFrom = damage_relations.no_damage_from.map((item) => (
-    <span key={item.name}>{item.name}</span>
-  ))
-  const noDamageTo = damage_relations.no_damage_to.map((item) => (
-    <span key={item.name}>{item.name}</span>
-  ))
-  
+
   return (
     <Box key={type.name}>
         <Typography variant='h3'>
