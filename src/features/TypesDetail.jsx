@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTypes } from '../reducers/typesSlice';
 import { Typography } from '@mui/material';
+import TypeCard from '../components/TypeCard';
+
 const TypesDetail = () => {
   const dispatch = useDispatch();
   const typesList = useSelector((state) => state.types.typesList)
@@ -19,7 +21,7 @@ const TypesDetail = () => {
     <div>
       <h1>Pokemon Types</h1>
       {typesList.map((type) => (
-        <p key={type.name}>{type.name}</p>
+        <TypeCard key={type.name} type={type}/>
       ))}
     </div>
   )

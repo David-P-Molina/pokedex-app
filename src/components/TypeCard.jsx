@@ -1,8 +1,13 @@
+import { Box, Typography } from '@mui/material'
 import React from 'react'
 
-const TypeCard = () => {
+const TypeCard = ({type}) => {
   return (
-    <div>TypeCard</div>
+    <Box>
+        <Typography variant='h3'>
+            {type.name}
+        </Typography>
+    </Box>
   )
 }
 
