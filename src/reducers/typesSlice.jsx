@@ -17,3 +17,5 @@ const typesSlice = createSlice({
     initialState: initialTypeState,
     reducers: {},
 })
+
+export default typesSlice.reducer
