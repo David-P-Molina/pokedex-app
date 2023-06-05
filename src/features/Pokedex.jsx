@@ -33,7 +33,7 @@ const Pokedex = () => {
     <Grid>
         <h1>Pokemon List</h1>
         {pokemonList.map((pokemon) => (
-          <PokemonCard pokemon={pokemon} />
+          <PokemonCard key={pokemon.name} pokemon={pokemon} />
           )
         )}
     </Grid>
