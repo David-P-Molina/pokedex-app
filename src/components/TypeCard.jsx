@@ -18,7 +18,8 @@ const TypeCard = ({ type }) => {
         <Typography>No Damage From: {type?.no_damage_from || 'None'}</Typography>
         <Typography>No Damage To: {type?.no_damage_to || 'None'}</Typography>
 
-    </Box
+    </Box>
+  )
 }
 
 export default TypeCard

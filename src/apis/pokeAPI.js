@@ -9,7 +9,12 @@ export const fetchPokemonList = async (limit) => {
 
 export const fetchAllTypes = async () => {
     const response = await fetch(`${baseURL}type`)
-    console.log(response)
+    const data = await response.json()
+    return data.results
+}
+
+export const fetchOneType = async ({typeURL}) => {
+    const response = await fetch(typeURL)
     const data = await response.json()
     return data.results
 }
