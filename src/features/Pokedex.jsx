@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
-import { Grid, Typography, Box } from '@mui/material'
+import { Grid } from '@mui/material'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchPokemon, fetchAllPokemon, fetchAllTypes, fetchPokemonListAsync, fetchPokeInfoAsync } from '../reducers/pokemonSlice'
-import { pokeApi } from '../apis/pokeApi';
+import { fetchPokemonListAsync, fetchPokeInfoAsync } from '../reducers/pokemonSlice'
 import { constructPokeObject } from '../utils';
 import PokemonCard from '../components/PokemonCard';
 
