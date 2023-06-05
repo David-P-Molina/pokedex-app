@@ -9,4 +9,5 @@ export const constructPokeObject = (pokeInfo, index) => {
         // img: pokeInfo.sprites.versions.generation-viii.icons.front_default,
         key: index,
     }; //construct necessary info, type, evolutions, description, etc.
+    return pokeObject
 }
