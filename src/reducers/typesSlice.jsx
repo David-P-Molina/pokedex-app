@@ -5,7 +5,7 @@ export const fetchTypes = createAsyncThunk('types/fetchTypes', async () => {
     const types = await fetchAllTypes()
     const typePromises = types.map((type) => fetchOneType({ typeURL: type.url }))
     const typeResponses = await Promise.all(typePromises)
-    const typesWithDetails = typeResponses.map((res) => res.results)
+    const typesWithDetails = typeResponses.map(((res) => res))
     return typesWithDetails
 })
 

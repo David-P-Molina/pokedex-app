@@ -2,7 +2,10 @@ import React from 'react'
 import { Box, Typography } from '@mui/material'
 
 const TypeCard = ({ type }) => {
-    
+  const { damage_relations, id, move_damage_class: { 
+    name: moveDamageClassName 
+  }, } = type;
+  
   return (
     <Box key={type.name}>
         <Typography variant='h3'>
