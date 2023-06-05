@@ -27,7 +27,7 @@ const Pokedex = () => {
       pokemonList.forEach((pokemon,index) => {
         let pokeInfo = dispatch(fetchPokeInfoAsync(pokemon))
         let assembledPokeObj = constructPokeObject(pokeInfo, index)
-        allPokemonInfo.push(assembledPokeObj)
+        allPokemonInfo.push(assembledPokeObj)// should this be done in pokemonSlice.js
       })
     }, [])
     
