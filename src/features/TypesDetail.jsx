@@ -6,7 +6,11 @@ const TypesDetail = () => {
   const dispatch = useDispatch();
   const typesList = useSelector((state) => state.types.typesList);
   const status = useSelector((state) => state.types.status);
-  const error = useSelector((state) => state.types.error);
+  
+  useEffect(() => {
+    dispatch(fetchTypes())
+  }, [dispatch])
+  
   return (
     <div>TypesDetail</div>
   )
