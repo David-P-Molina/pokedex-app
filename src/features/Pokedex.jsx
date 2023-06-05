@@ -24,8 +24,15 @@ const Pokedex = () => {
       //fetch call based on url
       const allPokemonInfo = []
       pokemonList.forEach((pokemon,index) => {
-        let pokeInfo;//fetchCallForIndividualPokemon(pokemon)
-        let pokeObject = {}; //construct necessary info, type, evolutions, description, etc.
+        let pokeInfo = dispatch(fetchPokeInfo(pokemon))
+        let pokeObject = {
+          height: pokeInfo['height'],
+          weight: pokeInfo['weight'],
+          types: [pokeInfo.types[0], pokeInfo.types[1]],
+          id: pokeInfo['id'],
+          img: pokeInfo.sprites.versions.generation-viii.icons.front_default
+
+        }; //construct necessary info, type, evolutions, description, etc.
         allPokemonInfo.push(pokeObject)
       })
     }, [pokemonList])
