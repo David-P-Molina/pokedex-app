@@ -30,8 +30,8 @@ const Pokedex = () => {
           weight: pokeInfo['weight'],
           types: [pokeInfo.types[0], pokeInfo.types[1]],
           id: pokeInfo['id'],
-          img: pokeInfo.sprites.versions.generation-viii.icons.front_default
-
+          img: pokeInfo.sprites.versions.generation-viii.icons.front_default,
+          key: index,
         }; //construct necessary info, type, evolutions, description, etc.
         allPokemonInfo.push(pokeObject)
       })
