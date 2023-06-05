@@ -1,5 +1,5 @@
 const express = require('express')
-const fetch = require('node-fetch')
+require('isomorphic-fetch')
 
 const app = express()
 

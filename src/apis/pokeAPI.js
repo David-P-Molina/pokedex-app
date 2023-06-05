@@ -13,8 +13,8 @@ export const fetchAllTypes = async () => {
     return data.results
 }
 
-export const fetchOneType = async ({typeURL}) => {
-    const response = await fetch(typeURL)
+export const fetchOneType = async ({ typeURL }) => {
+    const response = await fetch(`http://localhost:8000${typeURL}`)
     const data = await response.json()
     return data.results
 }
