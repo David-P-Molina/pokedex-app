@@ -34,8 +34,9 @@ export const fetchAllTypes = createAsyncThunk(
     }
 )
 const initialState = {
-    allPokemon: [],
     pokemonList: [],
+    pokeInfoList: [],
+    allPokemon: [],
     allTypes: [],
     pokemon: null,
     isLoading: false,
@@ -46,7 +47,10 @@ const pokemonSlice = createSlice({
     initialState: initialState,
     reducers: {
         setPokemonList: (state, action) => {
-          state.pokemonList = action.payload;
+            state.pokemonList = action.payload;
+        },
+        setPokeInfoList: (state, action) => {
+            state.pokeInfoList = [...state.pokeInfoList, action.payload]
         },
     },
     extraReducers: (builder) => {
