@@ -18,7 +18,6 @@ const TypesDetail = () => {
   return (
     <div>
       <h1>Pokemon Types</h1>
-      {console.log(typesList)}
       {typesList.map((type) => (
         <p key={type.name}>{type.name}</p>
       ))}
