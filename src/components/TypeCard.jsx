@@ -1,13 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Box, Typography } from '@mui/material'
 
-const TypeCard = ({type}) => {
-    useEffect(() => {
-    //   fetchTypeDetail
-    //Add to state and use
-    //should this be done in the card or in the app types component
-    }, [])
-    let typeInfo = {}
+const TypeCard = ({type, typeInfo}) => {
+    //Conditional if type === typeInfoName create damage info for that name
   return (
     <Box>
         <Typography variant='h3'>
