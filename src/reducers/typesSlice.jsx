@@ -6,8 +6,14 @@ export const fetchTypes = createAsyncThunk('types/fetchTypes', async () => {
     return types
 })
 
-const initialState = {
+const initialTypeState = {
     typesList: [],
     status: 'idle',
     error: null,
 }
+
+const typesSlice = createSlice({
+    name: 'types',
+    initialState: initialTypeState,
+    reducers: {},
+})
