@@ -5,3 +5,9 @@ export const fetchTypes = createAsyncThunk('types/fetchTypes', async () => {
     const types = await fetchAllTypes()
     return types
 })
+
+const initialState = {
+    typesList: [],
+    status: 'idle',
+    error: null,
+}
