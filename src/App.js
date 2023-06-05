@@ -12,6 +12,7 @@ import store from './store/store'
 // import TypesDetail from './features/TypesDetail';
 
 import './App.css';
+import TypesDetail from './features/TypesDetail';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <CssBaseline />
       <Container maxWidth='lg'>
         <Pokedex />
+        <TypesDetail />
         <Footer />
       </Container>
     </Provider>
