@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchPokemon, fetchAllPokemon, fetchAllTypes, fetchPokemonListAsync, fetchPokeInfoAsync } from '../reducers/pokemonSlice'
 import { pokeApi } from '../apis/pokeApi';
 import { constructPokeObject } from '../utils';
+import PokemonCard from '../components/PokemonCard';
 
 const Pokedex = () => {
   const dispatch = useDispatch() 
@@ -33,14 +34,7 @@ const Pokedex = () => {
     <Grid>
         <h1>Pokemon List</h1>
         {pokemonList.map((pokemon) => (
-          <Box>
-            <Typography 
-              key={pokemon.name}
-              variant='h3' 
-              textTransform='capitalize'>
-              {pokemon.name}
-            </Typography>
-          </Box>
+          <PokemonCard pokemon={pokemon} />
           )
         )}
     </Grid>
