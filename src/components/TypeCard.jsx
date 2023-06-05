@@ -4,7 +4,7 @@ import { Box, Typography } from '@mui/material'
 const TypeCard = ({ type }) => {
     
   return (
-    <Box>
+    <Box key={type.name}>
         <Typography variant='h3'>
             {type.name}
         </Typography>
