@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTypes } from './typesSlice';
+import { fetchTypes } from '../reducers/typesSlice';
 import { Typography } from '@mui/material';
 const TypesDetail = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,13 @@ const TypesDetail = () => {
 
   if(status === 'failed') return <Typography variant='h4'>Error: {error}</Typography>
   return (
-    <div>TypesDetail</div>
+    <div>
+      <h1>Pokemon Types</h1>
+      {console.log(typesList)}
+      {typesList.map((type) => (
+        <p key={type.name}>{type.name}</p>
+      ))}
+    </div>
   )
 }
 
