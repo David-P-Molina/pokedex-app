@@ -1,9 +1,7 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
-import { useSelector } from 'react-redux'
 
 const TypeCard = ({ type }) => {
-    const typeInfo = useSelector((state) => state.types.typesList.name === type)
     
   return (
     <Box>
