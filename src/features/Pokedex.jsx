@@ -19,15 +19,15 @@ const Pokedex = () => {
       dispatch(fetchPokemonListAsync(2))
     }, [dispatch])
     //Fetch IndividualPokemon
-    useEffect(() => {
-      //fetch call based on url
-      const allPokemonInfo = []
-      pokemonList.forEach((pokemon,index) => {
-        let pokeInfo = dispatch(fetchPokeInfoAsync(pokemon))
-        let assembledPokeObj = constructPokeObject(pokeInfo, index)
-        allPokemonInfo.push(assembledPokeObj)// should this be done in pokemonSlice.js
-      })
-    }, [])
+    // useEffect(() => {
+    //   //fetch call based on url
+    //   const allPokemonInfo = []
+    //   pokemonList.forEach((pokemon,index) => {
+    //     let pokeInfo = dispatch(fetchPokeInfoAsync(pokemon))
+    //     let assembledPokeObj = constructPokeObject(pokeInfo, index)
+    //     allPokemonInfo.push(assembledPokeObj)// should this be done in pokemonSlice.js
+    //   })
+    // }, [])
     
     if(!pokemonList > 0) return "Loading..."
   return (
