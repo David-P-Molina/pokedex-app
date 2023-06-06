@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchAllTypes, fetchOneType } from "../apis/pokeApi";
+import { fetchAllTypes, fetchOneType } from "../apis/typeApi";
 
 export const fetchTypes = createAsyncThunk('types/fetchTypes', async () => {
     const types = await fetchAllTypes()
