@@ -1,14 +1,6 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
-
-const generateDamageTypes = (damageInfo, propertyKey) => {
-  if( !damageInfo[propertyKey] || damageInfo[propertyKey].length === 0) return <span>None</span>
-  const damageInfoList = damageInfo[propertyKey].map((item) => (
-    <p key={item.name}>{item.name}</p>
-    )
-  )
-  return damageInfoList
-}
+import { generateDamageTypes } from '../utils';
 
 const TypeCard = ({ type }) => {
   const { damage_relations, id, name } = type;
