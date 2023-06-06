@@ -7,19 +7,6 @@ export const fetchPokemonList = async (limit) => {
     return data.results
   }
 
-export const fetchAllTypes = async () => {
-    const response = await fetch(`${baseURL}type`)
-    const data = await response.json()
-    return data.results
-}
-
-export const fetchOneType = async ({ typeURL }) => {
-    const response = await fetch(`${typeURL}`)
-    const data = await response.json()
-    return data
-}
-
-  //Need to redo to fetch actual pokemonTypes and get working
 export const pokeApi = createApi({
     reducerPath: 'pokeApi',
     baseQuery: fetchBaseQuery({ baseUrl: baseURL}),
@@ -30,11 +17,8 @@ export const pokeApi = createApi({
         getAllPokemon: builder.query({
             query: () => 'pokemon',
         }),
-        getAllTypes: builder.query({
-            query: () => 'type',
-        }),
     })    
 })
 
 
-export const { useGetPokemonByNameQuery, useGetAllPokemonQuery, useGetAllTypesQuery } = pokeApi
+export const { useGetPokemonByNameQuery, useGetAllPokemonQuery } = pokeApi
