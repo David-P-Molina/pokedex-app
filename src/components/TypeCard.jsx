@@ -4,7 +4,7 @@ import { Box, Typography } from '@mui/material'
 const generateDamageTypes = (damageInfo, propertyKey) => {
   if( !damageInfo[propertyKey] || damageInfo[propertyKey].length === 0) return <span>None</span>
   const damageInfoList = damageInfo[propertyKey].map((item) => (
-    <span key={item.name}>{item.name}</span>
+    <p key={item.name}>{item.name}</p>
     )
   )
   return damageInfoList
