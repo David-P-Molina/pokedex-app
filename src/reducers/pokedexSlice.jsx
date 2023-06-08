@@ -10,5 +10,12 @@ const initialState = {
 const pokedexSlice = createSlice({
     name: 'pokedexs',
     initialState: initialState,
-    reducers: {}
+    reducers: {
+        setPokedexList: (state, action) => {
+            state.pokedexList = action.payload
+        }
+    }
 })
+
+export const { setPokedexList } = pokedexSlice.actions
+export default pokedexSlice.reducer
