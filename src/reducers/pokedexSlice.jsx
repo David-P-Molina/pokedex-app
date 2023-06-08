@@ -6,3 +6,9 @@ const initialState = {
     status: 'idle',
     error: null,
 }
+
+const pokedexSlice = createSlice({
+    name: 'pokedexs',
+    initialState: initialState,
+    reducers: {}
+})
