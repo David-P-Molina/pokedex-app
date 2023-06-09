@@ -5,10 +5,10 @@ export const fetchPokemonListAsync = (limit) => async (dispatch) => {
     const pokemonList = await fetchPokemonList(limit);
     dispatch(setPokemonList(pokemonList));
   };
-export const fetchPokeInfoAsync = (limit) => async (dispatch) => {
-    const pokemonList = await fetchPokemonList(limit);
-    dispatch(setPokemonList(pokemonList));
-  };
+// export const fetchPokeInfoAsync = (limit) => async (dispatch) => {
+//     const pokemonList = await fetchPokemonList(limit);
+//     dispatch(setPokeInfoList(pokemonList));
+//   };
 
 const initialState = {
     pokemonList: [],

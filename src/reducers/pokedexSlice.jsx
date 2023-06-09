@@ -6,13 +6,14 @@ export const fetchPokedexListAsync = () => async (dispatch) => {
     dispatch(setPokedexList(pokedexList))
 }
 
-export const fetchPokedexInfo = () => async (dispatch) => {
-    const singlePokedexInfo = await fetchSinglePokedexInfo()
-    dispatch(setPokedexInfo(singlePokedexInfo))
-}
+// export const fetchPokedexInfo = () => async (dispatch) => {
+//     const singlePokedexInfo = await fetchSinglePokedexInfo()
+//     dispatch(setPokedexInfo(singlePokedexInfo))
+// }
 
 const initialState = {
     pokedexList: [],
+    pokedexInfoList: [],
     status: 'idle',
     error: null,
 }
