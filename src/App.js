@@ -18,7 +18,7 @@ function App() {
   return (
     <Provider store={store}>
       <CssBaseline />
-      <Container maxWidth='lg'>
+      <Container maxWidth='lg' className='app'>
         <Pokedex />
         <TypesDetail />
         <Footer />

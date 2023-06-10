@@ -1,9 +1,14 @@
-body {
+.app {
   font-family: 'Josefin Sans';
   background-color: #F2F2F2;
   color: #333;
 }
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
 
+}
 /* Bleached Silk #F2F2F2
 Reef Waters #72A1A6
 Cetacean Blue #011140
