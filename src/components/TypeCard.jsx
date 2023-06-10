@@ -13,7 +13,7 @@ const TypeCard = ({ type }) => {
   const noDamageTo = generateDamageTypes(damage_relations, 'no_damage_to');
 
   return (
-    <Box key={id}>
+    <Box key={id} className='type-card'>
       <Typography variant='h3'>{id}: {name}</Typography>
       <Typography variant="h6">Type Details</Typography>
       <Typography variant="body">Double Damage From:</Typography>
