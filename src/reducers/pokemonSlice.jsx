@@ -15,7 +15,6 @@ export const fetchPokemonListAsync = (limit) => async (dispatch) => {
 
 const initialState = {
     pokemonList: [],
-    pokeInfoList: [],
     pokemon: null,
     isLoading: false,
     error: null,
@@ -27,11 +26,6 @@ const pokemonSlice = createSlice({
         setPokemonList: (state, action) => {
             state.isLoading = false
             state.pokemonList = action.payload;
-            state.error = null
-        },
-        setPokeInfoList: (state, action) => {
-            state.isLoading = false
-            state.pokeInfoList = [...state.pokeInfoList, action.payload]
             state.error = null
         },
         setPokemonError: (state, action) => {
