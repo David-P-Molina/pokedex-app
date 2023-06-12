@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchTypes } from '../reducers/typesSlice';
 import { Typography } from '@mui/material';
 import TypeCard from '../components/TypeCard';
+import ErrorCard from '../components/ErrorCard';
 
 const TypesDetail = () => {
   const dispatch = useDispatch();
   const typesList = useSelector((state) => state.types.typesList)
   const status = useSelector((state) => state.types.status)
-  const error = useSelector((state) => console.log(state.types))
+  const typesError = useSelector((state) => state.types.error)
   
   useEffect(() => {
     dispatch(fetchTypes())
@@ -16,10 +17,10 @@ const TypesDetail = () => {
   
   if(status === 'loading') return <Typography variant='h4'>Loading...</Typography>
 
-  if(status === 'failed') return <Typography variant='h4'>Error: {error}</Typography>
   return (
     <div>
       <h1>Pokemon Types</h1>
+      {typesError && <ErrorCard componentName='Types List' error={typesError}></ErrorCard>}
       {typesList.map((type) => (
         <TypeCard key={type.name} type={type}/>
       ))}
