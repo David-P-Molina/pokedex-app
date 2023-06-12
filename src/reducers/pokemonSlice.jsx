@@ -9,9 +9,9 @@ export const fetchPokemonListAsync = (limit) => async (dispatch) => {
         const pokemonWithDetails = pokemonListResponses.map(((res) => res))
         dispatch(setPokemonList(pokemonWithDetails));
     } catch (error) {
-        dispatch(setError(error.message))
+        dispatch(setPokemonError(error.message))
     }
-  };
+  }
 
 const initialState = {
     pokemonList: [],
@@ -25,10 +25,18 @@ const pokemonSlice = createSlice({
     initialState: initialState,
     reducers: {
         setPokemonList: (state, action) => {
+            state.isLoading = false
             state.pokemonList = action.payload;
+            state.error = null
         },
         setPokeInfoList: (state, action) => {
+            state.isLoading = false
             state.pokeInfoList = [...state.pokeInfoList, action.payload]
+            state.error = null
+        },
+        setPokemonError: (state, action) => {
+            state.isLoading = false
+            state.error = action.payload
         },
     },
 })
