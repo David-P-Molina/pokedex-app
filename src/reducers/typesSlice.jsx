@@ -1,7 +1,7 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { fetchAllTypes, fetchOneType } from "../apis/typeApi";
 
-export const fetchTypes = createAsyncThunk('types/fetchTypes', async (dispatch) => {
+export const fetchTypes = () => async (dispatch) => {
   try{
     const types = await fetchAllTypes()
     const typePromises = types.map((type) => fetchOneType({ typeURL: type.url }))
@@ -11,7 +11,7 @@ export const fetchTypes = createAsyncThunk('types/fetchTypes', async (dispatch) 
   } catch (error) {
     dispatch(setTypesError(error.message))
   }
-})
+}
 
 const initialTypeState = {
     typesList: [],
