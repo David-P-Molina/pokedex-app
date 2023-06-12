@@ -7,6 +7,7 @@ import PokemonCard from '../components/PokemonCard';
 const PokemonDetail = () => {
   const dispatch = useDispatch() 
   const pokemonList = useSelector((state) => state.pokemon.pokemonList)
+  const pokemonError = useSelector((state) => state.pokemon.error)
   useEffect(() => {
     dispatch(fetchPokemonListAsync(2))
   }, [dispatch])
@@ -15,6 +16,7 @@ const PokemonDetail = () => {
   return (
     <Grid>
         <h1>Pokemon List</h1>
+        <ErrorCard pokemonError={pokemonError}></ErrorCard>
         {pokemonList.map((pokemon) => (
           <PokemonCard key={pokemon.name} pokemon={pokemon} />
           )
