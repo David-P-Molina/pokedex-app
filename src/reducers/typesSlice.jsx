@@ -7,9 +7,9 @@ export const fetchTypes = createAsyncThunk('types/fetchTypes', async () => {
     const typePromises = types.map((type) => fetchOneType({ typeURL: type.url }))
     const typeResponses = await Promise.all(typePromises)
     const typesWithDetails = typeResponses.map(((res) => res))
-    return typesWithDetails
+    dispatch(setTypesList(typesWithDetails))
   } catch (error) {
-    dispatch(setTypeError(error.message))
+    dispatch(setTypesError(error.message))
   }
 })
 
@@ -22,21 +22,20 @@ const initialTypeState = {
 const typesSlice = createSlice({
     name: 'types',
     initialState: initialTypeState,
-    reducers: {},
-    extraReducers: (builder) => {
-      builder
-        .addCase(fetchTypes.pending, (state) => {
-          state.status = 'loading'
-        })
-        .addCase(fetchTypes.fulfilled, (state, action) => {
-          state.status = 'succeeded'
-          state.typesList = action.payload
-        })
-        .addCase(fetchTypes.rejected, (state, action) => {
-          state.status = 'failed'
-          state.error = action.error.message
-        });
+    reducers: {
+      setTypesList: (state, action) => {
+        state.isLoading = false
+        state.typesList = action.payload
+        state.error = null
+      },
+      setTypesError: (state, action) => {
+        state.isLoading = false
+        state.error = action.payload
+      },
     },
-  });
+  },
+);
+
+export const { setTypesList, setTypesError}
 
 export default typesSlice.reducer
