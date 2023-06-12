@@ -7,6 +7,12 @@ export const fetchPokemonList = async (limit) => {
     return data.results
   }
 
+export const fetchOnePokemonInfo = async ({ pokemonURL }) => {
+    const response = await fetch(`${pokemonURL}`)
+    const data = await response.json()
+    return data
+}
+
 export const pokeApi = createApi({
     reducerPath: 'pokeApi',
     baseQuery: fetchBaseQuery({ baseUrl: baseURL}),
