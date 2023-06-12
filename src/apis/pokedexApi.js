@@ -5,3 +5,9 @@ export const fetchAllPokedexs = async () => {
     const data = await response.json()
     return data.results
 }
+
+export const fetchSinglePokedex = async ({ pokedexURL }) => {
+    const response = await fetch(pokedexURL)
+    const data = await response.json()
+    return data
+}
