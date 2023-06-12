@@ -15,8 +15,7 @@ export const fetchPokemonListAsync = (limit) => async (dispatch) => {
 
 const initialState = {
     pokemonList: [],
-    pokemon: null,
-    isLoading: false,
+    isLoading: true,
     error: null,
 }
 const pokemonSlice = createSlice({
