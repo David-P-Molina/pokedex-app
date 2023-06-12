@@ -16,7 +16,7 @@ const PokemonDetail = () => {
   return (
     <Grid>
         <h1>Pokemon List</h1>
-        <ErrorCard pokemonError={pokemonError}></ErrorCard>
+        <ErrorCard error={pokemonError}></ErrorCard>
         {pokemonList.map((pokemon) => (
           <PokemonCard key={pokemon.name} pokemon={pokemon} />
           )
