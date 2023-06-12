@@ -3,6 +3,7 @@ import { fetchPokemonList, fetchOnePokemonInfo } from '../apis/pokeApi';
 
 export const fetchPokemonListAsync = (limit) => async (dispatch) => {
     try {
+        dispatch(setIsLoading(true))
         const pokemonList = await fetchPokemonList(limit);
         const pokemonListPromises = pokemonList.map((pokemon) => fetchOnePokemonInfo({ pokemonURL: pokemon.url}))
         const pokemonListResponses = await Promise.all(pokemonListPromises)
@@ -10,6 +11,8 @@ export const fetchPokemonListAsync = (limit) => async (dispatch) => {
         dispatch(setPokemonList(pokemonWithDetails));
     } catch (error) {
         dispatch(setPokemonError(error.message))
+    } finally {
+        dispatch(setIsLoading(false))
     }
   }
 
@@ -23,17 +26,18 @@ const pokemonSlice = createSlice({
     initialState: initialState,
     reducers: {
         setPokemonList: (state, action) => {
-            state.isLoading = false
             state.pokemonList = action.payload;
             state.error = null
         },
         setPokemonError: (state, action) => {
-            state.isLoading = false
             state.error = action.payload
         },
+        setIsLoading: (state, action) => {
+            state.isLoading = action.payload
+        }
     },
 })
 
-export const { setPokemonList, setPokemonError } = pokemonSlice.actions;
+export const { setPokemonList, setPokemonError, setIsLoading } = pokemonSlice.actions;
 
 export default pokemonSlice.reducer
