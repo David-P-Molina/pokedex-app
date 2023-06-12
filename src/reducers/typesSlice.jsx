@@ -36,6 +36,6 @@ const typesSlice = createSlice({
   },
 );
 
-export const { setTypesList, setTypesError}
+export const { setTypesList, setTypesError} = typesSlice.actions
 
 export default typesSlice.reducer
