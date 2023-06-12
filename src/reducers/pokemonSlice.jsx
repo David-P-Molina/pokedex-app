@@ -35,6 +35,6 @@ const pokemonSlice = createSlice({
     },
 })
 
-export const { setPokemonList } = pokemonSlice.actions;
+export const { setPokemonList, setPokemonError } = pokemonSlice.actions;
 
 export default pokemonSlice.reducer
