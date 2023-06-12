@@ -1,14 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { fetchPokemonList } from '../apis/pokeApi';
+import { fetchPokemonList, fetchOnePokemonInfo } from '../apis/pokeApi';
 
 export const fetchPokemonListAsync = (limit) => async (dispatch) => {
     const pokemonList = await fetchPokemonList(limit);
-    dispatch(setPokemonList(pokemonList));
+    const pokemonListPromises = pokemonList.map((pokemon) => fetchOnePokemonInfo({ pokemonURL: pokemon.url}))
+    const pokemonListResponses = await Promise.all(pokemonListPromises)
+    const pokemonWithDetails = pokemonListResponses.map(((res) => res))
+    dispatch(setPokemonList(pokemonWithDetails));
   };
-// export const fetchPokeInfoAsync = (limit) => async (dispatch) => {
-//     const pokemonList = await fetchPokemonList(limit);
-//     dispatch(setPokeInfoList(pokemonList));
-//   };
 
 const initialState = {
     pokemonList: [],
