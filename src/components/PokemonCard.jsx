@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material'
 
 const PokemonCard = ({ pokemon }) => {
   return (
-    <Box key={pokemon.name}>
+    <Box key={pokemon.name} className='pokemon-card'>
             <Typography 
               key={pokemon.name}
               variant='h3' 
