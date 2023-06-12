@@ -8,7 +8,7 @@ import store from './store/store'
 // import { Box } from '@mui/material'
 // import NavBar from './components/NavBar';
 // import Home from './pages/Home';
-// import PokemonDetail from './features/PokemonDetail';
+import PokemonDetail from './features/PokemonDetail';
 // import TypesDetail from './features/TypesDetail';
 
 import './App.css';
@@ -19,6 +19,7 @@ function App() {
     <Provider store={store}>
       <CssBaseline />
       <Container maxWidth='lg' className='app'>
+        <PokemonDetail />
         <Pokedex />
         <TypesDetail />
         <Footer />
