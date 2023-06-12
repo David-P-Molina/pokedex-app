@@ -3,6 +3,7 @@ import { fetchAllTypes, fetchOneType } from "../apis/typeApi";
 
 export const fetchTypes = () => async (dispatch) => {
   try{
+    dispatch(setIsLoading(true))
     const types = await fetchAllTypes()
     const typePromises = types.map((type) => fetchOneType({ typeURL: type.url }))
     const typeResponses = await Promise.all(typePromises)
@@ -10,6 +11,8 @@ export const fetchTypes = () => async (dispatch) => {
     dispatch(setTypesList(typesWithDetails))
   } catch (error) {
     dispatch(setTypesError(error.message))
+  } finally {
+    dispatch(setIsLoading(false))
   }
 }
 
@@ -24,18 +27,19 @@ const typesSlice = createSlice({
     initialState: initialTypeState,
     reducers: {
       setTypesList: (state, action) => {
-        state.isLoading = false
         state.typesList = action.payload
         state.error = null
       },
       setTypesError: (state, action) => {
-        state.isLoading = false
         state.error = action.payload
       },
+      setIsLoading: (state, action) => {
+        state.isLoading = action.payload
+      }
     },
   },
 );
 
-export const { setTypesList, setTypesError} = typesSlice.actions
+export const { setTypesList, setTypesError, setIsLoading } = typesSlice.actions
 
 export default typesSlice.reducer
