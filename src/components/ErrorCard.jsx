@@ -1,8 +1,12 @@
 import React from 'react'
+import { Alert, AlertTitle } from '@mui/material'
 
-const ErrorCard = () => {
+const ErrorCard = ({componentName, error}) => {
   return (
-    <div>ErrorCard</div>
+    <Alert severity="error">
+        <AlertTitle>Error</AlertTitle>
+        An error has occurred in {componentName} — <strong>{error}!</strong>
+    </Alert>
   )
 }
 
