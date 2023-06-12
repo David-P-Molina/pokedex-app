@@ -8,6 +8,12 @@ const PokemonCard = ({ pokemon }) => {
       component='img' 
       alt={pokemon.name}
       src={pokemon?.src}
+      sx={{
+        height: 350,
+        width: 350,
+        maxHeight: { xs: 233, md: 200 },
+        maxWidth: { xs: 350, md: 300 },
+      }}
       />
     <Typography 
       key={pokemon.name}
