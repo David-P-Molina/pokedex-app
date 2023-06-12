@@ -1,3 +1,9 @@
+/* Bleached Silk #F2F2F2
+Reef Waters #72A1A6
+Cetacean Blue #011140
+Hot Hibiscus #BF2441
+Red Baron #BF0413 */
+
 .app {
   font-family: 'Josefin Sans';
   background-color: #F2F2F2;
@@ -30,8 +36,7 @@
   transform: scale(1, 1);
   transition: 0.3s all ease-in-out;
 }
-/* Bleached Silk #F2F2F2
-Reef Waters #72A1A6
-Cetacean Blue #011140
-Hot Hibiscus #BF2441
-Red Baron #BF0413 */
+
+.pokedex-card {
+
+}
