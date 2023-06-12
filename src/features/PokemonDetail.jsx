@@ -3,6 +3,7 @@ import { Grid } from '@mui/material'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchPokemonListAsync } from '../reducers/pokemonSlice'
 import PokemonCard from '../components/PokemonCard';
+import ErrorCard from '../components/ErrorCard';
 
 const PokemonDetail = () => {
   const dispatch = useDispatch() 
@@ -16,7 +17,7 @@ const PokemonDetail = () => {
   return (
     <Grid>
         <h1>Pokemon List</h1>
-        <ErrorCard error={pokemonError}></ErrorCard>
+        <ErrorCard componentName='Pokemon List' error={pokemonError}></ErrorCard>
         {pokemonList.map((pokemon) => (
           <PokemonCard key={pokemon.name} pokemon={pokemon} />
           )
