@@ -1,11 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { fetchAllPokedexs } from '../apis/pokedexApi'
+import { fetchAllPokedexs, fetchSinglePokedex } from '../apis/pokedexApi'
 
 export const fetchPokedexListAsync = () => async (dispatch) => {
     try {
         dispatch(setIsLoading(true))
         const pokedexList = await fetchAllPokedexs()
-        dispatch(setPokedexList(pokedexList))
+        const pokedexPromises = pokedexList.map((dex) => fetchSinglePokedex({pokedexURL: dex.url}))
+        const pokedexResponses = await Promise.all(pokedexPromises)
+        const pokedexWithDetails = pokedexResponses((res) => res)
+        dispatch(setPokedexList(pokedexWithDetails))
     } catch (error) {
         dispatch(setPokedexError(error.message))
     } finally {
