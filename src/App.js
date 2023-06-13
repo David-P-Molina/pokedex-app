@@ -8,20 +8,18 @@ import store from './store/store'
 // import { Box } from '@mui/material'
 // import NavBar from './components/NavBar';
 // import Home from './pages/Home';
-import PokemonDetail from './features/PokemonDetail';
-// import TypesDetail from './features/TypesDetail';
-
 import './App.css';
-import TypesDetail from './features/TypesDetail';
-
+// import PokemonDetail from './features/PokemonDetail';
+// import TypesDetail from './features/TypesDetail';
+import Pokedex from './features/Pokedex';
 function App() {
   return (
     <Provider store={store}>
       <CssBaseline />
       <Container maxWidth='lg' className='app'>
-        <PokemonDetail />
         <Pokedex />
-        <TypesDetail />
+        {/* <PokemonDetail />
+        <TypesDetail /> */}
         <Footer />
       </Container>
     </Provider>
