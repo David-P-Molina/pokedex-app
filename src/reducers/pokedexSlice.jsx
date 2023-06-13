@@ -20,8 +20,7 @@ export const fetchPokedexListAsync = () => async (dispatch) => {
 
 const initialState = {
     pokedexList: [],
-    pokedexInfoList: [],
-    status: 'idle',
+    isLoading: false,
     error: null,
 }
 
@@ -31,9 +30,15 @@ const pokedexSlice = createSlice({
     reducers: {
         setPokedexList: (state, action) => {
             state.pokedexList = action.payload
+        },
+        setPokedexError: (state, action) => {
+            state.error = action.payload
+        },
+        setIsLoading: (state,action) => {
+            state.isLoading = action.payload
         }
     }
 })
 
-export const { setPokedexList } = pokedexSlice.actions
+export const { setPokedexList, setIsLoading, setPokedexError } = pokedexSlice.actions
 export default pokedexSlice.reducer
