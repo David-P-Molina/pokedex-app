@@ -11,7 +11,7 @@ import store from './store/store'
 import './App.css';
 // import PokemonDetail from './features/PokemonDetail';
 // import TypesDetail from './features/TypesDetail';
-import Pokedex from './features/Pokedex';
+
 function App() {
   return (
     <Provider store={store}>

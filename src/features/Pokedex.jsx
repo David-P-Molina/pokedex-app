@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Grid } from '@mui/material'
+import { Grid, Typography, Box } from '@mui/material'
 import { useSelector, useDispatch } from 'react-redux'
 
 const Pokedex = () => {
@@ -9,8 +9,12 @@ const Pokedex = () => {
     }, [dispatch])
     
   return (
-    <Grid>
-    </Grid>
+    <Box>
+      <Typography variant='h3'>Pokedex List</Typography>
+      <Grid>
+        <PokedexCard />
+      </Grid>
+    </Box>
   )
 }
 
