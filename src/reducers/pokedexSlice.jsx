@@ -16,11 +16,6 @@ export const fetchPokedexListAsync = () => async (dispatch) => {
     }
 }
 
-// export const fetchPokedexInfo = () => async (dispatch) => {
-//     const singlePokedexInfo = await fetchSinglePokedexInfo()
-//     dispatch(setPokedexInfo(singlePokedexInfo))
-// }
-
 const initialState = {
     pokedexList: [],
     isLoading: false,
