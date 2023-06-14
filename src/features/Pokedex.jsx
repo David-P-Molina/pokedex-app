@@ -18,7 +18,7 @@ const Pokedex = () => {
   return (
     <Box>
       <Typography variant='h3'>Pokedex List</Typography>
-      <ErrorCard componentName='Pokedex' error={pokedexError}/>
+      {pokedexError && <ErrorCard componentName='Pokedex' error={pokedexError}/>}
       <Grid>
         {pokedexList.map((dex) => (
           <PokedexCard key={dex.name} pokedex={dex}/>
