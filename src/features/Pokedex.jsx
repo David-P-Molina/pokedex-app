@@ -7,10 +7,13 @@ import { fetchPokedexListAsync } from '../reducers/pokedexSlice'
 const Pokedex = () => {
   const dispatch = useDispatch() 
   const pokedexList = useSelector((state) => state.pokedex.pokedexList)
+  const pokedexError = useSelector((state) => state.pokedex.error)
+  const pokedexLoading = useSelector((state) => state.pokedex.isLoading)
     useEffect(() => {
       dispatch(fetchPokedexListAsync())
     }, [dispatch])
-    console.log(pokedexList)
+
+  if(pokedexLoading) return "...loading Pokedex Info"
   return (
     <Box>
       <Typography variant='h3'>Pokedex List</Typography>
