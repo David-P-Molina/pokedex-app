@@ -20,7 +20,9 @@ const Pokedex = () => {
       <Typography variant='h3'>Pokedex List</Typography>
       <ErrorCard componentName='Pokedex' error={pokedexError}/>
       <Grid>
-        <PokedexCard />
+        {pokedexList.map((dex) => (
+          <PokedexCard key={dex.name} pokedex={dex}/>
+        ))}
       </Grid>
     </Box>
   )
