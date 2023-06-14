@@ -10,7 +10,7 @@ const Pokedex = () => {
     useEffect(() => {
       dispatch(fetchPokedexListAsync())
     }, [dispatch])
-    
+    console.log(pokedexList)
   return (
     <Box>
       <Typography variant='h3'>Pokedex List</Typography>

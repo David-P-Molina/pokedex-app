@@ -7,7 +7,7 @@ export const fetchPokedexListAsync = () => async (dispatch) => {
         const pokedexList = await fetchAllPokedexs()
         const pokedexPromises = pokedexList.map((dex) => fetchSinglePokedex({pokedexURL: dex.url}))
         const pokedexResponses = await Promise.all(pokedexPromises)
-        const pokedexWithDetails = pokedexResponses((res) => res)
+        const pokedexWithDetails = pokedexResponses.map((res) => res)
         dispatch(setPokedexList(pokedexWithDetails))
     } catch (error) {
         dispatch(setPokedexError(error.message))
