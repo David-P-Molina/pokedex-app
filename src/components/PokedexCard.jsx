@@ -1,19 +1,17 @@
 import { Box } from '@mui/material'
 import React from 'react'
+import { constructPokedexObject } from '../utils'
 
 const PokedexCard = ({pokedex}) => {
-    const {
-    version_groups: [{ name: versionGroupName = "", url: versionGroupUrl = "" } = {}] = [],
-    region: { name: regionName = "" } = {},
-    id = "",
-    name: pokedexName = ""
+  const {
+  version_groups: [{ name: versionGroupName = "", url: versionGroupUrl = "" } = {}] = [],
+  region: { name: regionName = "" } = {}, id = "", name: pokedexName = ""
   } = pokedex
+  
   const { description: englishDescription } = pokedex.descriptions.find(
     (desc) => desc.language.name === "en"
   ) || {};
   
-  console.log(englishDescription);
-  //national pokedex & conquest gallery pokedex are not working
   return (
     <Box className='pokedex-card'>
       ID:{id}<br />
