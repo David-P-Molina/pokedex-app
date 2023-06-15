@@ -4,6 +4,7 @@ import { fetchTypes } from '../reducers/typesSlice';
 import { Typography } from '@mui/material';
 import TypeCard from '../components/TypeCard';
 import ErrorCard from '../components/ErrorCard';
+import { CircularProgress } from '@mui/material'
 
 const TypesDetail = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const TypesDetail = () => {
     dispatch(fetchTypes())
   }, [dispatch])
   
-  if(status === 'loading') return <Typography variant='h4'>Loading...</Typography>
+  if(status) return <CircularProgress />
 
   return (
     <div>

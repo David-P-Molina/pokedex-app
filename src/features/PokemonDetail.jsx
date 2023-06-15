@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchPokemonListAsync } from '../reducers/pokemonSlice'
 import PokemonCard from '../components/PokemonCard';
 import ErrorCard from '../components/ErrorCard';
+import { CircularProgress } from '@mui/material'
 
 const PokemonDetail = () => {
   const dispatch = useDispatch() 
@@ -13,7 +14,7 @@ const PokemonDetail = () => {
     dispatch(fetchPokemonListAsync(2))
   }, [dispatch])
 
-  if(!pokemonList > 0) return "Loading..."
+  if(!pokemonList > 0) return <CircularProgress />
   return (
     <Grid>
         <h1>Pokemon List</h1>
