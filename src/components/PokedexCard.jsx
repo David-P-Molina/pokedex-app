@@ -1,25 +1,24 @@
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import React from 'react'
 import { constructPokedexObject } from '../utils'
 
-const PokedexCard = ({pokedex}) => {
+const PokedexCard = ({ pokedex }) => {
   const {
   version_groups: [{ name: versionGroupName = "", url: versionGroupUrl = "" } = {}] = [],
   region: { name: regionName = "" } = {}, id = "", name: pokedexName = ""
   } = pokedex
-  
   const { description: englishDescription } = pokedex.descriptions.find(
     (desc) => desc.language.name === "en"
   ) || {};
   
   return (
     <Box className='pokedex-card'>
-      ID:{id}<br />
-      PokedexName:{pokedexName}<br />
-      Description:{englishDescription}<br />
-      Region Name:{regionName}<br />
-      Version Group Name{versionGroupName}<br />
-      URL: {versionGroupUrl}<br />
+      <Typography>ID: {id}</Typography>
+      <Typography>PokedexName: {pokedexName}</Typography>
+      <Typography>Description: {englishDescription}</Typography>
+      <Typography>Region Name: {regionName}</Typography>
+      <Typography>Version Group Name {versionGroupName}</Typography>
+      <Typography>URL: {versionGroupUrl}</Typography>
     </Box>
   )
 }

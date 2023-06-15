@@ -1,8 +1,11 @@
 import React from 'react'
+import { Box } from '@mui/material'
 
-const NationalPokedexCard = () => {
+const NationalPokedexCard = (pokedex) => {
   return (
-    <div>NationalPokedexCard</div>
+    <Box>
+        NationalPokedexCard
+    </Box>
   )
 }
 

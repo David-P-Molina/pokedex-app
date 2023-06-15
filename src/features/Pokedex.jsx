@@ -11,9 +11,9 @@ const Pokedex = () => {
   const pokedexList = useSelector((state) => state.pokedex.pokedexList)
   const pokedexError = useSelector((state) => state.pokedex.error)
   const pokedexLoading = useSelector((state) => state.pokedex.isLoading)
-    useEffect(() => {
-      dispatch(fetchPokedexListAsync())
-    }, [dispatch])
+  useEffect(() => {
+    dispatch(fetchPokedexListAsync())
+  }, [dispatch])
 
   if(pokedexLoading) return "...loading Pokedex Info"
   return (
@@ -22,7 +22,7 @@ const Pokedex = () => {
       {pokedexError && <ErrorCard componentName='Pokedex' error={pokedexError}/>}
       <Grid>
         {pokedexList.map((dex) => {
-          if (dex.id === 1) return <NationalPokedexCard pokedex={dex} />;
+          if (dex.id === 1) return <NationalPokedexCard key={dex.name} pokedex={dex} />;
             //National id:1 and conquest pokedex id:11 entries
           if (dex.id !== 11) return <PokedexCard key={dex.name} pokedex={dex}/>
           })
