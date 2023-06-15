@@ -22,13 +22,9 @@ const Pokedex = () => {
       {pokedexError && <ErrorCard componentName='Pokedex' error={pokedexError}/>}
       <Grid>
         {pokedexList.map((dex) => {
-          if (dex.id === 1 || dex.id === 11) {
+          if (dex.id === 1) return <NationalPokedexCard pokedex={dex} />;
             //National id:1 and conquest pokedex id:11 entries
-            return <NationalPokedexCard />;
-          } else if (dex.id === 11) {
-            return null
-          }
-           return <PokedexCard key={dex.name} pokedex={dex}/>
+          if (dex.id !== 11) return <PokedexCard key={dex.name} pokedex={dex}/>
           })
         }
       </Grid>
