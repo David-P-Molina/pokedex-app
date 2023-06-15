@@ -5,6 +5,7 @@ import PokedexCard from '../components/PokedexCard'
 import { fetchPokedexListAsync } from '../reducers/pokedexSlice'
 import ErrorCard from '../components/ErrorCard'
 import NationalPokedexCard from '../components/NationalPokedexCard'
+import { CircularProgress } from '@mui/material'
 
 const Pokedex = () => {
   const dispatch = useDispatch() 
@@ -15,7 +16,7 @@ const Pokedex = () => {
     dispatch(fetchPokedexListAsync())
   }, [dispatch])
 
-  if(pokedexLoading) return "...loading Pokedex Info"
+  if(!pokedexLoading) return <CircularProgress />
   return (
     <Box>
       <Typography variant='h3'>Pokedex List</Typography>
