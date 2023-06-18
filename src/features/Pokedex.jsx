@@ -16,7 +16,7 @@ const Pokedex = () => {
     dispatch(fetchPokedexListAsync())
   }, [dispatch])
 
-  if(!pokedexLoading) return <CircularProgress />
+  if(pokedexLoading) return <CircularProgress />
   return (
     <Box>
       <Typography variant='h3'>Pokedex List</Typography>
